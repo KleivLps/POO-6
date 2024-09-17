@@ -1,7 +1,5 @@
 package GestionBiblioteca;
 
-public class Catalogable {
-    void obtenerInformacion() {
-
-    }
+public interface Catalogable {
+    void obtenerInformacion(); // Método abstracto de la interfaz
 }

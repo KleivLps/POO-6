@@ -17,7 +17,7 @@ public class Revistas extends ItemsDeBiblioteca implements Catalogable{
         this.nroEdicion = nroEdicion;
         this.cantidadEjemplares = cantidadEjemplares;
         this.nombreRevista = nombreRevista;
-        this.fechaPrestamo = null;
+        this.fechaPrestamo = fechaPrestamo;
     }
 
     public int getNroEdicion(){
@@ -62,7 +62,7 @@ public class Revistas extends ItemsDeBiblioteca implements Catalogable{
     @Override
     public void devolver() {
         cantidadEjemplares++;
-        System.out.println("Revista devuleta. Ejemplares ahora disponibles: " +cantidadEjemplares);
+        System.out.println("Revista devuelta. Ejemplares ahora disponibles: " +cantidadEjemplares);
     }
 
     @Override
@@ -74,9 +74,9 @@ public class Revistas extends ItemsDeBiblioteca implements Catalogable{
 
         double multaporDia = 1.0;
         LocalDate DiaDevolucion = LocalDate.now();
-        long disaPrestamo = ChronoUnit.DAYS.between(fechaPrestamo, DiaDevolucion);
+        long diasPrestamo = ChronoUnit.DAYS.between(fechaPrestamo, DiaDevolucion);
 
-        double multaTotal = (disaPrestamo - diasAtraso) * multaporDia;
+        double multaTotal = (diasPrestamo - diasAtraso) * multaporDia;
 
         return multaTotal > 0? multaTotal: 0;
     }
